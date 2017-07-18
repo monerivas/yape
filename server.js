@@ -7,6 +7,7 @@ const apiUsers        = require('./api/users'); //Endpoints relacionados al User
 
 const app = express();
 const db  = levelup('./api/users', {valueEncoding: 'json'});
+const path= require('path');
 
 const format = morganjson({
   short: ':method :url :status',
@@ -19,13 +20,19 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(morgan(format));
 
+app.use('/static', express.static(__dirname + "public"));//Le estoy dicniendo que ruta debe escuchar/ver para mi carpeta public
+app.use('/static', express.static(__dirname + "node_modules"));//Le estoy dicniendo que ruta debe escuchar/ver para mi carpeta node_modules
+
 let router = express.Router();
 
 router.get('/', (req, res) => {
   res.json({ name: 'yape-api',version: "0.0.1"});
+    
+    res.sendFile(__dirname + '/index.html');//le digo que envie mi archivo
 });
 
 app.use('/api',apiUsers(router,db));
+
 
 const port = process.env.PORT || 3000;
 
