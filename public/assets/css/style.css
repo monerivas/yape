@@ -1,5 +1,11 @@
 body {
   font: 100% Helvetica, sans-serif;
-  color: #333; }
+  color: black; }
+
+.contenedorBoton__boton {
+  background-color: #fbd43b; }
+
+.tamanoImg {
+  height: 50vh; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,7 +1,19 @@
-$font-stack: Helvetica, sans-serif;
+$font-stack: Helvetica,
+sans-serif;
 $primary-color: #333;
-
-body{
+$color-negro: black;
+$color-amarillo: #fbd43b;
+body {
     font: 100% $font-stack;
-    color: $primary-color;
+    color: $color-negro;
+}
+
+.contenedorBoton {
+    &__boton {
+        background-color: #fbd43b;
+    }
+}
+
+.tamanoImg {
+    height: 50vh;
 }
