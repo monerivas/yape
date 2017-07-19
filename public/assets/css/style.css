@@ -1,11 +1,45 @@
+/*-----Variables------*/
+/*-----Variables------*/
+/*Calses Globales*/
+.mgt-10 {
+  margin-top: 10vh; }
+
+mgb-10 {
+  margin-bottom: 10vh; }
+
+/*Calses Globales*/
 body {
-  font: 100% Helvetica, sans-serif;
   color: black; }
 
-.contenedorBoton__boton {
-  background-color: #fbd43b; }
+/*-------Estilos view2.html----------*/
+/*-------Estilos view2.html----------*/
+/*-------Estilos index.html----------*/
+.carousel {
+  /*height: 1000px!important;*/
+  height: 450px !important; }
+
+.carousel .indicators .indicator-item {
+  background-color: #212121; }
+
+.carousel .indicators .indicator-item.active {
+  background-color: red; }
 
 .tamanoImg {
-  height: 50vh; }
+  width: 100%; }
+
+/*.carrusel{
+    margin-top: 10%;
+    &__contenedor{
+        padding-top: 1vh 0;        
+             &--parrafos{
+            font-size: 50vh;
+        }
+    }
+}*/
+.contenedorBoton__boton {
+  background-color: #fbd43b;
+  text-align: center; }
+
+/*-------Estilos index.html----------*/
 
 /*# sourceMappingURL=style.css.map */
