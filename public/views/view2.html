@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro YAPE</title>
-    <link rel="stylesheet" href="static/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/materialize-css/dist/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="static/assets/css/style.css">
+    <link rel="stylesheet" href="../static/assets/css/style.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <section class="contariner">
         <section class="row">
             <div class="col s4 offset-s4 mgt-10">
-                <img class="responsive-img" src="assets/img/icons/phone.png">
+                <img class="responsive-img" src="../assets/img/icons/phone.png">
             </div>
         </section>
 
@@ -30,14 +30,14 @@
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s12 contenedorBoton center">
-                        <i class="material-icons prefix">stay_primary_portrait</i>
-                        <input id="icon_telephone" type="tel" class="validate">
-                        <label for="icon_telephone">+52</label>
+                        
+                        <input id="inputTelefono" type="tel" class="validate">
+                        <label for="icon_telephone"><i class="material-icons">stay_primary_portrait</i>+52</label>
                         <p>
-                            <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                            <label for="filled-in-box">Acepto los Terminos y condiciones</label>
+                            <input type="checkbox" class="filled-in" id="filled-in-box" />
+                            <label for="filled-in-box">Acepto los <a href="#">Terminos y condiciones</a></label>
                         </p>
-                        <button class="btn contenedorBoton__boton mgt-10" type="submit">CONTINUAR</button>
+                        <button id="botonContinuar" class="btn contenedorBoton__boton disabled mgt-10" type="submit">CONTINUAR</button>
                     </div>
                 </div>
             </form>
@@ -48,9 +48,9 @@
 
 
 
-    <script src="static/jquery/dist/jquery.min.js"></script>
-    <script src="static/materialize-css/dist/js/materialize.min.js"></script>
-    <script src="static/assets/minificadoJS/main.js"></script>
+    <script src="../static/jquery/dist/jquery.min.js"></script>
+    <script src="../static/materialize-css/dist/js/materialize.min.js"></script>
+    <script src="../static/assets/minificadoJS/main.js"></script>
 </body>
 
 </html>
