@@ -14,7 +14,10 @@ var cargarPagina = function () {
      $("#inputClave6").keyup(validar3camposVIEW4);*/
 
     $("#botonContinuar").click(hacerPostAPI);
+    $("#inputCodigoTelefono").keyup(validarCodigoDelTelefono);
+
 };
+
 
 /*----------Inicio Validaciones-----------*/
 var validarTelefonoVIEW2 = function () {
@@ -43,6 +46,22 @@ var validarTelefonoVIEW2 = function () {
         botonCrearCuenta.addClass("disabled");
     }
 }*/
+
+/*Esta funcion se activa en la pantalla 3 y valida el codigo que el usuario recibe al ingresar tu telefono en la tantalla2*/
+var validarCodigoDelTelefono = function () {
+    var valorInputCodigoTelefono = $("#inputCodigoTelefono").val();//obtengo el valor de ese input
+    var code = localStorage.getItem("code");//obtiene la propiedad code y su valor del localStorage que guarde cuando hago el primer post a la API
+
+    if (valorInputCodigoTelefono.length == code.length) {
+        if (valorInputCodigoTelefono == code) {
+            console.log("Ya se valida la longitud del codigo");
+            location.href = "view4.html"
+        } else {
+            alert("El código no coincide. Ingresa el código correcto")
+        }
+    }
+
+}
 /*----------Fin Validaciones-----------*/
 
 
@@ -60,15 +79,17 @@ var hacerPostAPI = function () {
         "phone": valorInputTelefono,
         "terms": true
     }, function (response) {
-        console.log(response.data.code);        
+        console.log(response.data.code);
         /*Guardo en localStorage (que es como una cookie) 
                 el primer parametro que es el nombre de la data
                 y el segundo parametro que es la data que quiero que guarde. como propiedad de un objeto y su valor.*/
         localStorage.setItem("phone", response.data.phone);
-        localStorage.setItem("phone", response.data.code);
-        localStorage.setItem("terms", response.data.terms); 
+        localStorage.setItem("code", response.data.code);
+        localStorage.setItem("terms", response.data.terms);
+        alert("Este es tu codigo de validación " + localStorage.getItem("code"));
+        console.log("Este es tu codigo de validación " + localStorage.getItem("code"));
     });
-    alert(localStorage.getItem("phone"));
+
 };
 /*----------Fin API------------*/
 
