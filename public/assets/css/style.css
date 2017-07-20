@@ -13,6 +13,9 @@
 .mgb-0 {
   margin: 0; }
 
+.mg-0 {
+  margin: 0; }
+
 .pdR-30 {
   padding-left: 30%; }
 
@@ -39,6 +42,9 @@ body {
 .tamanoImg {
   width: 100%; }
 
+.imgIcon {
+  height: 3.5vh; }
+
 /*.carrusel{
     margin-top: 10%;
     &__contenedor{
@@ -53,5 +59,26 @@ body {
   text-align: center; }
 
 /*-------Estilos index.html----------*/
+/*----------Estilos View5-------*/
+.fondo-Amarillo {
+  background-color: #fbd43b; }
+
+.imgCheck {
+  height: 15vh; }
+
+/*.contendor-felx{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}*/
+.contendorRow {
+  margin-top: 60%; }
+
+/*----------Estilos View5-------*/
+/*----------Estilos View6-------*/
+.mgt-2vh {
+  margin-top: 2vh; }
+
+/*----------Estilos View6-------*/
 
 /*# sourceMappingURL=style.css.map */

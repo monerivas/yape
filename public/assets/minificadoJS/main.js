@@ -59,9 +59,16 @@ var hacerPostAPI = function () {
     $.post(api.urlRegisterNumbers, {
         "phone": valorInputTelefono,
         "terms": true
-    },function (response) {
-        console.log(response.data.code);
+    }, function (response) {
+        console.log(response.data.code);        
+        /*Guardo en localStorage (que es como una cookie) 
+                el primer parametro que es el nombre de la data
+                y el segundo parametro que es la data que quiero que guarde. como propiedad de un objeto y su valor.*/
+        localStorage.setItem("phone", response.data.phone);
+        localStorage.setItem("phone", response.data.code);
+        localStorage.setItem("terms", response.data.terms); 
     });
+    alert(localStorage.getItem("phone"));
 };
 /*----------Fin API------------*/
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro YAPE view3</title>
+    <title>Registro YAPE view6</title>
     <link rel="stylesheet" href="../static/materialize-css/dist/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../static/assets/css/style.css">
@@ -15,46 +15,64 @@
     <section class="contariner">
         <section class="row">
             <div class="col s4 offset-s4 mgt-10">
-                <img class="responsive-img" src="../assets/img/icons/message.png">
+                <img class="responsive-img" src="../assets/img/icons/bcp-logo.png">
             </div>
         </section>
 
         <section class="row">
             <div class="col s8 offset-s2 center">
-                <h5>Ahora ingresa tu código</h5>
-                <p> Enviamos un SMS con el código de validación al número <strong><span id="spanNumTel"></span></strong></p>
-                
+                <h5>Regista tu tarjeta débito BCP</h5>
+                <p> Por ahora solo aceptamos cuentas de ahorro y/o corrientes en soles</p>
             </div>
         </section>
 
         <section class="row">
-            <form class="col s12 center">
+            <form class="col s12 ">
                 <div class="row">
                     <div class="input-field col s12 contenedorBoton center">
 
                         <p>
                             <input id="inputTelefono" type="tel" class="validate">
-                            <label for="icon_telephone"><img class="imgIcon" src="../assets/img/icons/lock.png"> <span class="pdR-30">- - - - -</span></label>
+                            <label for="icon_telephone"><img class="imgIcon" src="../assets/img/icons/card.png"></label>
                         </p>
                     </div>
                 </div>
                 <div class="row mgt-0">
                     <div class="col s12 mgt-0">
                         <p class="center mgt-0">
-                            <label for="">Reintentar en <img class="imgIcon" src="../assets/img/icons/clock.png"> 21</label>
+                            <label for=""> <a href="#"><img class="imgIcon" src="../assets/img/icons/scan.png"> Escanear tarjeta</a></label>
                         </p>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col s6 mgt-2vh">
+                        <label>Fecha de vencimiento</label>
+                    </div>
+                    <div class="col s2">                       
+                        <input type="text" placeholder="MES">
+                        
+                    </div>
+                    <div class="col s1 mgt-2vh">
+                        <span class="">/</span>
+                    </div>
+                    <div class="col s2">
+                        <input type="text" placeholder="AÑO">
+                        
+                        
+                    </div>
+
+
+
                 </div>
             </form>
         </section>
     </section>
 
-<!--Este view debe avanzar al view siguiente despues de ingresar el codigo que envio la API-->
+    <!--Este view debe avanzar al view siguiente despues de ingresar el codigo que envio la API-->
 
     <script src="../static/jquery/dist/jquery.min.js"></script>
     <script src="../static/materialize-css/dist/js/materialize.min.js"></script>
     <script src="../static/assets/minificadoJS/main.js"></script>
-    <script src="../static/assets/minificadoJS/JSview3.js"></script>
 </body>
 
 </html>

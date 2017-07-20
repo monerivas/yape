@@ -27,6 +27,9 @@ $negro: black;
 .mgb-0{
     margin: 0;
 } 
+.mg-0{
+    margin: 0;
+}
 
 .pdR-30{
     padding-left: 30%;
@@ -67,6 +70,10 @@ body {
     width: 100%; 
 }
 
+.imgIcon{
+    height: 3.5vh;
+}
+
 //mi clase de carrusel
 /*.carrusel{
     margin-top: 10%;
@@ -85,5 +92,30 @@ body {
 }
 /*-------Estilos index.html----------*/
 
+/*----------Estilos View5-------*/
+.fondo-Amarillo{
+    background-color: $amarillo-botones;
+}
+.imgCheck{
+    height: 15vh;
+}
+/*.contendor-felx{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}*/
 
+.contendorRow{
+    margin-top: 60%;
+}
+/*----------Estilos View5-------*/
+
+
+
+/*----------Estilos View6-------*/
+.mgt-2vh{
+    margin-top: 2vh;
+}
+
+/*----------Estilos View6-------*/
 
