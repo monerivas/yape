@@ -10,11 +10,14 @@ var cargarPagina = function () {
     $("#filled-in-box").change(validarTelefonoVIEW2);
     $("#inputTelefono").keyup(validarTelefonoVIEW2);
 
-    /* $("#inputNombre").keyup(validar3camposVIEW4);
-     $("#inputClave6").keyup(validar3camposVIEW4);*/
+     $("#inputNombre").keyup(validar3camposVIEW4);
+     $("#inputMail").keyup(validar3camposVIEW4);    
+     $("#inputClave6").keyup(validar3camposVIEW4);
 
     $("#botonContinuar").click(hacerPostAPI);
     $("#inputCodigoTelefono").keyup(validarCodigoDelTelefono);
+
+    
 
 };
 
@@ -32,27 +35,31 @@ var validarTelefonoVIEW2 = function () {
     }
 }
 
-/*var validar3camposVIEW4 = function () {
+var validar3camposVIEW4 = function () {
+    console.log("si entra a la funcion")
     var valorInputNombre = $("#inputNombre").val();
     var valorInputMail = $("#inputMail").val();
     var valorInputClave6 = $("#inputClave6").val();
-    var botonCrearCuenta = $("botonCrearCuenta");
+    var botonCrearCuenta = $("#botonCrearCuenta");
 
 
-    if (valorInputNombre.length => 1 && valorInputClave6.length == 6) {
+    if (valorInputNombre.length != 0 && valorInputMail.length !=0 && valorInputClave6.length == 6) {
 
         botonCrearCuenta.removeClass("disabled");
     } else {
         botonCrearCuenta.addClass("disabled");
     }
-}*/
+}
 
-/*Esta funcion se activa en la pantalla 3 y valida el codigo que el usuario recibe al ingresar tu telefono en la tantalla2*/
+
 var validarCodigoDelTelefono = function () {
-    var valorInputCodigoTelefono = $("#inputCodigoTelefono").val();//obtengo el valor de ese input
-    var code = localStorage.getItem("code");//obtiene la propiedad code y su valor del localStorage que guarde cuando hago el primer post a la API
+    /*Esta funcion se activa en la pantalla 3 y valida el codigo que el usuario recibe al ingresar tu telefono en la tantalla2*/
+    var valorInputCodigoTelefono = $("#inputCodigoTelefono").val(); //obtengo el valor de ese input
+    var code = localStorage.getItem("code"); //obtiene la propiedad code y su valor del localStorage que guarde cuando hago el primer post a la API
 
+    //hago un primer if para validar la longitud tanto del input como del localStorage, porque sino cada que ingrese un caracter se lanza el alert
     if (valorInputCodigoTelefono.length == code.length) {
+        //Este if valida el valor de ambas cosas (ya no la longitud) y si no son extrictamente iguales manda codigo de error
         if (valorInputCodigoTelefono == code) {
             console.log("Ya se valida la longitud del codigo");
             location.href = "view4.html"
@@ -62,6 +69,8 @@ var validarCodigoDelTelefono = function () {
     }
 
 }
+
+
 /*----------Fin Validaciones-----------*/
 
 
@@ -69,6 +78,7 @@ var validarCodigoDelTelefono = function () {
 var api = {
     urlRegisterNumbers: "http://localhost:3000/api/registerNumber",
     urlResendCode: "http://localhost:3000/api/resendCode",
+    urlCreateUser: "http://localhost:3000/api/createUser",
 
 }
 
@@ -80,7 +90,7 @@ var hacerPostAPI = function () {
         "terms": true
     }, function (response) {
         console.log(response.data.code);
-        /*Guardo en localStorage (que es como una cookie) 
+        /*Guardo en localStorage (que es como una cookie pero que no conceta con el servidor, solo guarda data en el navegador) 
                 el primer parametro que es el nombre de la data
                 y el segundo parametro que es la data que quiero que guarde. como propiedad de un objeto y su valor.*/
         localStorage.setItem("phone", response.data.phone);
@@ -89,8 +99,20 @@ var hacerPostAPI = function () {
         alert("Este es tu codigo de validación " + localStorage.getItem("code"));
         console.log("Este es tu codigo de validación " + localStorage.getItem("code"));
     });
-
 };
+
+var codigo21seg = function () {
+    $.post(api.urlResendCode, {//hago un post a la url siguiente endpoint 
+        "phone": localStorage.getItem("phone")/*En la linea 37 del arcgivo users.js de la API viene que para hacer un post a este endpoint (req) hay que enviar la propiedad phone (y su valor) al JSON. Le digo que a la propiedad phone le meta el valor que ya tenía guardado en localStorage porque no le debo volver a pedir al usuario el telefono(ademas de que eso me daria error porque ya esta registrado ese numero)*/
+    }, function (response) {
+        console.log(response);/*veo que respuesta me da la API, me da un JSON con dos propiedades phone y message*/
+        localStorage.setItem("code", response.data);/*Sobre escribo la propiedad code del localStorage (con el valor de la propiedad data porque en este JSON de este endpoint el code no se llama code, como en el pasado, se llama data ) para invalidar el codigo anterior y que quede este nuevo guardado*/
+        console.log(response.data);/*Hago console.log de como queda la propiedad data (con el valor de code)del JSON de este endpoint */
+        /**/
+        alert(response.data);
+    });
+
+}
 /*----------Fin API------------*/
 
 
